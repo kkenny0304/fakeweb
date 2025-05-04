@@ -1,0 +1,256 @@
+/* ========= Reset & 基礎 ========= */
+/* ========= Reset & 基礎 ========= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* 1. 允許垂直捲動 */
+body, html {
+    width: 100%;
+    /* height: 100%; */      /* 可以保留或移除 */
+    min-height: 100vh;       /* 確保至少填滿視窗 */
+    overflow-x: hidden;      /* 只禁止水平捲動 */
+    overflow-y: auto;        /* 允許垂直捲動 */
+    font-family: "微軟正黑體", sans-serif;
+    background: linear-gradient(to right, #e1f5fe, #f6fcff);
+    position: relative;
+}
+/* 頂部那塊純藍色曲線裝飾 */
+.decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70vw;
+    height: 60vh;
+    background-color: #A0CFFF;     /* 純藍色 */
+    clip-path: ellipse(70% 100% at 0% 0%);
+    z-index: 0;                     /* ➞ 先給它 0 */
+}
+
+
+
+/* 2. 讓 container 自動伸展到所有內容高度 */
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    /* height: 100vh; */     /* 移除這行 */
+    min-height: 100vh;       /* 最低填滿，內容多會自動往下延伸 */
+}
+
+/* ========= 左側装飾 (改為半透明背景全覆蓋) ========= */
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;         /* 只留左半邊做漸層 */
+    height: 100%;
+    background: linear-gradient(135deg, #C8E7FF, #EFF6FF);
+    z-index: 0;        /* 放到最底層 */
+}
+.sidebar .logo {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #004060;
+}
+
+/* ========= 右側表單 改為絕對置中 ========= */
+.login-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 360px;             /* 固定寬度 */
+    max-width: 90%;           /* 行動裝置下縮放 */
+    background-color: #FFFFFF;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 1;          /* ➞ 提升到 1，比 decoration(0) 高 */
+
+}
+
+/* 標題 */
+.login-panel h1 {
+    font-size: 2rem;
+    color: #003347;
+    text-align: center;
+}
+
+/* 表單項目 */
+.login-panel form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.login-panel label {
+    font-size: 0.95rem;
+    color: #004060;
+    margin-bottom: 0.5rem;
+}
+.login-panel input[type="text"],
+.login-panel input[type="password"] {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #D0E8F2;
+    border-radius: 4px;
+}
+.login-panel .remember {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #004060;
+}
+.login-panel .reset-link {
+    font-size: 0.85rem;
+    color: #00965E;
+    text-decoration: none;
+    align-self: flex-end;
+}
+.login-panel button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #003347;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ========= 語言切換 ========= */
+.lang-switcher {
+    position: fixed;   /* 固定在視窗 */
+    top: 1.5rem;       /* 距視窗頂端 */
+    right: 1.5rem;     /* 距視窗右側 */
+    z-index: 999;      /* 確保浮在最上層 */
+}
+
+.lang-switcher select {
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #B0C9D9;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+/* 加在 style.css 的最後 */
+.login-panel form input[type="text"],
+.login-panel form input[type="password"] {
+    width: 100%;       /* 填滿父容器寬度 */
+    box-sizing: border-box; /* 含 padding、border 一起計算寬度 */
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* 新增：錯誤訊息樣式 */
+.error-message {
+    color: #D93025;
+    font-size: 0.85rem;
+    min-height: 1em;
+}
+
+/* 新增：當欄位驗證失敗時，框線變紅 */
+input.invalid {
+    border-color: #D93025 !important;
+}
+
+/* 語言切換固定定位 */
+.lang-switcher {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+}
+.error-message {
+    display: block;      /* 讓 error span 一定會撐開 */
+    color: #D93025;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    min-height: 1em;
+}
+input.invalid {
+    border-color: #D93025 !important;
+}
+/* 次要連結 */
+.sub-links {
+    text-align: center;
+    margin: 2rem 0 1rem;
+}
+.sub-links a {
+    color: #00965E;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin: 0 0.5rem;
+}
+.sub-links .sep {
+    color: #CCCCCC;
+}
+
+/* 頁尾 */
+.main-footer {
+    background-color: #49B864;  /* 主綠色 */
+    color: #FFFFFF;
+    font-size: 0.85rem;
+}
+.main-footer .footer-top,
+.main-footer .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+}
+.footer-logos {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.footer-logo {
+    height: 48px;
+    object-fit: contain;
+}
+.footer-nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0 0.75rem;
+    font-size: 0.9rem;
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+}
+.footer-bottom span {
+    margin-right: 0.5rem;
+}
+.footer-bottom .copy {
+    margin-left: auto;
+}
+/* 左側 .sidebar 的 logo 區塊 */
+.sidebar-logos {
+    position: absolute;
+    top: 1.5rem;          /* 距離頂端 */
+    left: 1.5rem;         /* 距離左側 */
+    display: flex;
+    align-items: center;
+    gap: 1rem;            /* 兩張圖之間間距 */
+    z-index: 1;           /* 確保在漸層上面 */
+}
+
+/* logo 圖片大小 */
+.sidebar-logo {
+    height: 48px;         /* 你可以調整成合適尺寸 */
+    object-fit: contain;
+}

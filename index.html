@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CUBE 網路銀行 登入</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<!-- 頂部裝飾 -->
+<div class="decoration"></div>
+<!-- 語言切換（固定在視窗右上角） -->
+<div class="lang-switcher">
+    <select id="language">
+        <option value="zh">繁體中文</option>
+        <option value="en">English</option>
+    </select>
+</div>
+
+<div class="container">
+    <div class="sidebar">
+
+        <div class="sidebar-logos">
+            <a href="https://www.cathay-cube.com.tw/cathaybk" target="_blank" rel="noopener noreferrer">
+                <img src="cathay-logo.png" alt="國泰世華銀行" class="sidebar-logo" />
+            </a>
+            <a href="https://www.cathay-cube.com.tw/cathaybk" target="_blank" rel="noopener noreferrer">
+                <img src="cube-logo.jpg" alt="CUBE" class="footer-logo" />
+            </a>
+        </div>
+    </div>
+
+    <div class="login-panel">
+        <h1 data-text="title">CUBE 網路銀行</h1>
+
+        <form id="loginForm">
+            <!-- 1. 身分證字號 -->
+            <div class="form-group">
+                <label for="idNumber" data-text="idLabel">身分證字號</label>
+                <input
+                        autocomplete="off"
+                        type="text"
+                        id="idNumber"
+                        data-placeholder="idPlaceholder"
+                        placeholder="請輸入身分證字號"
+                        maxlength="10"
+                />
+                <span id="idError" class="error-message"></span>
+            </div>
+
+            <!-- 2. 用戶代號（請只出現一次） -->
+            <div class="form-group">
+                <label for="userId" data-text="userIdLabel">用戶代號</label>
+                <input
+                        autocomplete="off"
+                        type="text"
+                        id="userId"
+                        data-placeholder="userIdPlaceholder"
+                        placeholder="請輸入6至12位用戶代號英數混合"
+                />
+                <span id="userIdError" class="error-message"></span>
+            </div>
+
+            <!-- 3. 網銀密碼 -->
+            <div class="form-group">
+                <label for="password" data-text="pwdLabel">網銀密碼</label>
+                <input
+                        autocomplete="off"
+                        type="password"
+                        id="password"
+                        data-placeholder="pwdPlaceholder"
+                        placeholder="請輸入6至16位密碼英數混合"
+                />
+                <span id="passwordError" class="error-message"></span>
+            </div>
+
+            <!-- 下面是記住我、連結、按鈕等 -->
+            <div class="remember">
+                <input type="checkbox" id="rememberMe" />
+                <label for="rememberMe" data-text="rememberMe">記住我</label>
+            </div>
+            <a href="#" class="reset-link" data-text="resetLink">申請／重設網銀密碼</a>
+            <button type="submit" data-text="loginButton">登入</button>
+        </form>
+    </div>
+</div>
+<!-- 次要連結 -->
+<div class="sub-links">
+    +  <a href="#" data-text="subCard">晶片金融卡登入</a>
+    <span class="sep">|</span>
+    +  <a href="#" data-text="subOpen">我要開戶</a>
+    <span class="sep">|</span>
+    +  <a href="#" data-text="subFAQ">常見問題</a>
+</div>
+
+<!-- 頁尾 -->
+<!-- 頁尾 -->
+<footer class="main-footer">
+    <div class="footer-top">
+        <!-- 這裡放回兩張 logo 圖 -->
+        <div class="footer-logos">
+            <!-- 國泰 logo，加上連結也 OK -->
+            <a href="https://www.cathay-cube.com.tw/cathaybk" target="_blank" rel="noopener noreferrer">
+                <img src="cathay-logo.png" alt="國泰世華銀行" class="footer-logo" />
+            </a>
+            <!-- CUBE logo -->
+            <img src="cube-logo.jpg" alt="CUBE" class="footer-logo" />
+        </div>
+        <nav class="footer-nav">
+            <a
+                    href="https://www.cathaybk.com.tw/cathaybk/personal/about/news/announcement/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-text="navAnnounce"
+            >公告訊息</a>
+
+            <a
+                    href="https://accessibility.cathaybk.com.tw/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-text="navFriendly"
+            >友善個人網銀</a>
+
+            <a
+                    href="https://www.cathaybk.com.tw/cathaybk/personal/contact/help/intro/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-text="navContact"
+            >聯絡我們</a>
+
+            <a
+                    href="https://www.cathaybk.com.tw/cathaybk/personal/contact/locations/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-text="navService"
+            >服務據點</a>
+        </nav>
+
+    </div>
+    <div class="footer-bottom">
+        <span data-text="browse">瀏覽器建議</span>
+        <span class="sep">｜</span>
+        <span data-text="insurance">存款保險</span>
+        <span class="copy" data-text="copyright">©國泰世華商業銀行股份有限公司</span>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
